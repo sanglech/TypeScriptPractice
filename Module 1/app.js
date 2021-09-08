@@ -1,18 +1,15 @@
-console.log("Hello World");
-//Defaults to any type unless otherwise specfied
-function add(n1, n2, flg, phrase) {
-    var result = n1 + n2;
-    if (flg) {
-        return phrase + " " + result;
+//Unioion type operator
+function combine(input1, input2, resultConversion) {
+    var result;
+    if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
+        result = +input1 + +input2; //+converts variable to a number
     }
     else {
-        return 0;
+        result = input1.toString() + input2.toString();
     }
+    return result;
 }
-var num = 5.3; //number type is both double and int
-var show = true;
-var phrase = "WORDDD UPPP";
-var result = add(5, 6, show, phrase);
-var result2 = add(num, num, show, phrase);
-console.log(result);
-console.log(result2);
+//literal types
+console.log("Adding two numbers " + combine(1, 2, 'as-number'));
+console.log(combine("hello ", "world", 'as-string'));
+console.log("Adding numbers" + combine("5 ", "4", 'as-number'));
