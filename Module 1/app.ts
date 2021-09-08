@@ -1,5 +1,18 @@
 //type alias (custom type)
 type Conversion= string|string; //explicit defintiiin of what to expect using union type
+type User = { name: string; age: number };
+const u1: User = { name: 'Max', age: 30 };
+
+
+type User2 = { name: string; age: number };
+     
+function greet(user: User2) {
+  console.log('Hi, I am ' + user.name);
+}
+ 
+function isOlder(user: User2, checkAge: number) {
+  return checkAge > user.age;
+}
 
 //Unioion type operator
 function combine(
