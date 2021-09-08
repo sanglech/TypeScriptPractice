@@ -13,6 +13,7 @@ function add(n1:number,n2:number, flg:boolean,phrase:string) {
 }
 
 const num =5.3; //number type is both double and int
+let numberthing: number = 4 //explicitly saying what type it is
 let show = true
 let phrase= "WORDDD UPPP"
 const result =add(5,6,show,phrase)
