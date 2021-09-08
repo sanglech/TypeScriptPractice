@@ -1,38 +1,34 @@
-//type alias (custom type)
-type Conversion= string|string; //explicit defintiiin of what to expect using union type
-type User = { name: string; age: number };
-const u1: User = { name: 'Max', age: 30 };
-
-
-type User2 = { name: string; age: number };
-     
-function greet(user: User2) {
-  console.log('Hi, I am ' + user.name);
-}
- 
-function isOlder(user: User2, checkAge: number) {
-  return checkAge > user.age;
+function add(n1:number, n2 :number){
+    return n1 +n2
 }
 
-//Unioion type operator
-function combine(
-    input1:number|string, 
-    input2:number|string,
-    resultConversion:Conversion) 
-    {
-    let result
-     if(typeof input1 ==='number' && typeof input2 ==='number' ||resultConversion==='as-number'){
-         result = +input1 +  +input2 //+converts variable to a number
-        }else{
-            result = input1.toString() + input2.toString()
-        }
-        return result
+function printResult(n1:number){
+    console.log(n1)
 }
 
-//literal types
+
+function strange(n1:number, n2 :number):undefined{
+    console.log(n1 +n2)
+    return;
+}
+
+function addAndPrint(num1:number,num2:number,cb:(num:number)=>void){
+const result = num1 +num2
+cb(result) //doesnt care about return type(even if void, sees it as we can return but dont need to
+//but does care about params
+}
 
 
+//Specific fucntion type
+let combineValues:(a:number, b:number)=> number;
 
- console.log("Adding two numbers "+ combine(1,2,'as-number'))
- console.log(combine("hello ", "world",'as-string'))
- console.log("Adding numbers " + combine("5 ", "4",'as-number'))
+
+// Defining that variable can only accept a function call that takes 2 numbers as input
+// and returns a number as a result
+combineValues = add
+
+addAndPrint(5,10,(result)=>{
+    console.log(result)
+})
+
+//combineValues = printResult //error

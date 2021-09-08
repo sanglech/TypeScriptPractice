@@ -1,15 +1,23 @@
-//Unioion type operator
-function combine(input1, input2, resultConversion) {
-    var result;
-    if (typeof input1 === 'number' && typeof input2 === 'number' || resultConversion === 'as-number') {
-        result = +input1 + +input2; //+converts variable to a number
-    }
-    else {
-        result = input1.toString() + input2.toString();
-    }
-    return result;
+function add(n1, n2) {
+    return n1 + n2;
 }
-//literal types
-console.log("Adding two numbers " + combine(1, 2, 'as-number'));
-console.log(combine("hello ", "world", 'as-string'));
-console.log("Adding numbers" + combine("5 ", "4", 'as-number'));
+function printResult(n1) {
+    console.log(n1);
+}
+function strange(n1, n2) {
+    console.log(n1 + n2);
+    return;
+}
+function addAndPrint(num1, num2, cb) {
+    var result = num1 + num2;
+    cb(result);
+}
+//Specific fucntion type
+var combineValues;
+// Defining that variable can only accept a function call that takes 2 numbers as input
+// and returns a number as a result
+combineValues = add;
+addAndPrint(5, 10, function (result) {
+    console.log(result);
+});
+//combineValues = printResult //error
