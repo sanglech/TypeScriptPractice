@@ -1,1 +1,5 @@
-./node_modules/*
+#igonore node module folders
+Module 1/node_modules/*
+
+#ignore vscode files
+.DS_Store
