@@ -1,6 +1,6 @@
 #igonore node module folders
-Module 1/node_modules/*
-
+Module_01/node_modules/*
+Module_02/node_modules/*
 #ignore vscode files
 .DS_Store
 .vscode/*
