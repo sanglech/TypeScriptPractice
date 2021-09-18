@@ -3,6 +3,7 @@ Module_01/node_modules/*
 Module_02/node_modules/*
 Module_03/node_modules/*
 Module_04/node_modules/*
+Module_05/node_modules/*
 #ignore vscode files
 .DS_Store
 .vscode/*
