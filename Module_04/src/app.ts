@@ -43,7 +43,7 @@ const activeHobby=["running"]
 activeHobby.push(...hobbies)
 
 const person = {
-    "name": "Chris",
+    "personName": "Chris",
     "age" : 29,
     "hobbies": activeHobby
 }
@@ -60,3 +60,13 @@ const addAnyNum = (...numbers:number[]) =>{
 }
 
 console.log("Adding all numbers "+ addAnyNum(5,5.7,10))
+
+// Array/Object Destructuring
+//stores first, second elements in first two const and rest param takes the rest
+const [hobby1,hobby2,...remainingHobbies] = hobbies
+
+//pulls out elements by key name (has to be property names)
+// save in new const  if you dont want default property name
+const {personName : nickName ,age}= person
+
+console.log(nickName + " The age "+ age)

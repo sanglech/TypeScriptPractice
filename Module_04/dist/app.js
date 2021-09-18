@@ -46,7 +46,7 @@ var activeHobby = ["running"];
 // spread operator making list out of array (can also be used on objects)
 activeHobby.push.apply(activeHobby, hobbies);
 var person = {
-    "name": "Chris",
+    "personName": "Chris",
     "age": 29,
     "hobbies": activeHobby
 };
@@ -64,4 +64,11 @@ var addAnyNum = function () {
     }, 0);
 };
 console.log("Adding all numbers " + addAnyNum(5, 5.7, 10));
+// Array/Object Destructuring
+//stores first, second elements in first two const and rest param takes the rest
+var hobby1 = hobbies[0], hobby2 = hobbies[1], remainingHobbies = hobbies.slice(2);
+//pulls out elements by key name (has to be property names)
+// save in new const  if you dont want default property name
+var nickName = person.personName, age = person.age;
+console.log(nickName + " The age " + age);
 //# sourceMappingURL=app.js.map
