@@ -18,7 +18,9 @@ const addNum = (a: number, b: number) =>{
 }
 
 // if only one line (implicit return)
-const addNumOneLine = (a: number, b: number) => a + b
+// if no num is provided for b default to 1
+// DEFAULT VALUES MUST BE LAST
+const addNumOneLine = (a: number, b: number = 1) => a + b
 
 // note: union type, either type 1 or type 2
 const longPrintOutput = (output: string | number)=>{
@@ -31,3 +33,30 @@ const printOutput: (a: number | string)=> void = output =>console.log(output)
 const sum=add(5,6)
 const arrowSum = addNum(4,5)
 console.log("Hi, "+ userName +" the value is "+sum);
+console.log("The value is "+addNumOneLine(7));
+
+const hobbies =["cards","sports","things"]
+const activeHobby=["running"]
+
+//note using push ccan use on const vals
+// spread operator making list out of array (can also be used on objects)
+activeHobby.push(...hobbies)
+
+const person = {
+    "name": "Chris",
+    "age" : 29,
+    "hobbies": activeHobby
+}
+
+const copiedPerson = {...person}
+const referencedPerson = person
+
+// merge comma seperated values into an array
+const addAnyNum = (...numbers:number[]) =>{
+    // reduce takes first value 0 in this case and returns it for each value in array/ param list
+    return numbers.reduce((currentResult, currentValue) => {
+        return currentResult + currentValue;
+    },0);
+}
+
+console.log("Adding all numbers "+ addAnyNum(5,5.7,10))
