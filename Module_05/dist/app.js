@@ -23,8 +23,8 @@ var Department = /** @class */ (function () {
         this.name = name;
         this.employees = [];
     }
-    Department.prototype.describe = function () {
-        console.log("Department: " + this.name);
+    Department.createEmployee = function (name) {
+        return { name: name };
     };
     Department.prototype.addEmployee = function (employee) {
         this.employees.push(employee);
@@ -33,6 +33,7 @@ var Department = /** @class */ (function () {
         console.log("Employees length: " + this.employees.length);
         console.log("Employees: " + this.employees);
     };
+    Department.yearJoined = 2021;
     return Department;
 }());
 var ITDepartment = /** @class */ (function (_super) {
@@ -42,6 +43,9 @@ var ITDepartment = /** @class */ (function (_super) {
         _this.admins = admins;
         return _this;
     }
+    ITDepartment.prototype.describe = function () {
+        console.log("IT Department: " + this.employees.length);
+    };
     return ITDepartment;
 }(Department));
 var AccountsDepartment = /** @class */ (function (_super) {
@@ -52,6 +56,28 @@ var AccountsDepartment = /** @class */ (function (_super) {
         _this.lastReport = reports[0];
         return _this;
     }
+    AccountsDepartment.prototype.describe = function () {
+        console.log("Accounting Department: " + this.employees.length);
+        ;
+    };
+    Object.defineProperty(AccountsDepartment.prototype, "MostRecentReport", {
+        get: function () {
+            if (this.lastReport) {
+                return this.lastReport;
+            }
+            else {
+                throw new Error('No Report found');
+            }
+        },
+        set: function (report) {
+            if (!report) {
+                throw new Error('No Report found');
+            }
+            this.addReports(report);
+        },
+        enumerable: false,
+        configurable: true
+    });
     AccountsDepartment.prototype.addEmployee = function (name) {
         if (name === "Max") {
             return;
@@ -67,16 +93,30 @@ var AccountsDepartment = /** @class */ (function (_super) {
     AccountsDepartment.prototype.printReports = function () {
         console.log("Accounting: " + this.reports);
     };
+    AccountsDepartment.getInstance = function () {
+        if (this.instance) {
+            return this.instance;
+        }
+        this.instance = new AccountsDepartment(1, []);
+        return this.instance;
+    };
     return AccountsDepartment;
 }(Department));
-var department = new Department(1, "Development");
+//const department =new Department(1,"Development")
 var ITdepartment = new ITDepartment(1, ["Christian"]);
-var Acctdepartment = new AccountsDepartment(1, []);
-department.describe();
-department.addEmployee("Christian");
-department.printEmployeeInfo();
+//const Acctdepartment =new AccountsDepartment(1,[])
+//singleton pattern
+var Acctdepartment = AccountsDepartment.getInstance();
+var year = Department.yearJoined;
+var emp1 = Department.createEmployee("Max");
+//department.describe();
+//department.addEmployee("Christian")
+//department.printEmployeeInfo();
 ITdepartment.addEmployee("Chris");
 ITdepartment.printEmployeeInfo();
 Acctdepartment.addReports("Report");
 Acctdepartment.printReports();
+//When calling getter no (), 
+Acctdepartment.MostRecentReport = "Hello World";
+console.log(">>>>>>" + Acctdepartment.MostRecentReport);
 //# sourceMappingURL=app.js.map
