@@ -1,12 +1,10 @@
 console.log("Hello World")
 
 class Department{
-    private name : string;
     private employees:string[]=[];
-
-    constructor(n:string){
-        this.name=n;
-
+    // Shortcut for initalization
+    // Readonly val
+    constructor(private readonly id: number, private name:string){
     }
 
     describe(){
@@ -23,7 +21,7 @@ class Department{
     }
 }
 
-const department =new Department("Development")
+const department =new Department(1,"Development")
 
 department.describe();
 

@@ -1,9 +1,12 @@
 "use strict";
 console.log("Hello World");
 var Department = /** @class */ (function () {
-    function Department(n) {
+    // Shortcut for initalization
+    // Readonly val
+    function Department(id, name) {
+        this.id = id;
+        this.name = name;
         this.employees = [];
-        this.name = n;
     }
     Department.prototype.describe = function () {
         console.log("Department: " + this.name);
@@ -17,7 +20,7 @@ var Department = /** @class */ (function () {
     };
     return Department;
 }());
-var department = new Department("Development");
+var department = new Department(1, "Development");
 department.describe();
 department.addEmployee("Christian");
 department.printEmployeeInfo();
