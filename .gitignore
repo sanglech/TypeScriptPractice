@@ -5,6 +5,7 @@ Module_03/node_modules/*
 Module_04/node_modules/*
 Module_05/node_modules/*
 Module_06/node_modules/*
+Module_07/node_modules/*
 #ignore vscode files
 .DS_Store
 .vscode/*

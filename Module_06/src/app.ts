@@ -140,4 +140,15 @@ const errorBag: ErrorContainer= {
 }
 
 
+// Optional Chaining in typescript
+const fetchedUserData ={
+    id: "id",
+    ping:"pong",
+    job:{title:"CEO",description:"Hello World"}
+}
 
+// Accessing safely check if outer exists before going inner
+console.log(fetchedUserData?.job?.description)
+
+//Nullish colllacing
+const storedata = fetchedUserData ?? "DEFAULT"

@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 var e1 = {
     name: 'Christian',
     privalage: ['ADMIN', 'USER'],
@@ -83,4 +84,14 @@ var errorBag = {
     "bag": "Get yo bag",
     "userName": "Must be capitol letter"
 };
+// Optional Chaining in typescript
+var fetchedUserData = {
+    id: "id",
+    ping: "pong",
+    job: { title: "CEO", description: "Hello World" }
+};
+// Accessing safely check if outer exists before going inner
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.description);
+//Nullish colllacing
+var storedata = fetchedUserData !== null && fetchedUserData !== void 0 ? fetchedUserData : "DEFAULT";
 //# sourceMappingURL=app.js.map
