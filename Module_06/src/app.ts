@@ -28,6 +28,8 @@ type Numeric = number | boolean
 // For union type, takes whats in common
 type thin = Combinable & Numeric
 
+//function overloading in typescript
+function add(a: number, b: number):number
 function add(a: Combinable, b: Combinable){
     //typeguard using type of
     if(typeof a === 'string'||typeof b === 'string'){
@@ -124,3 +126,18 @@ const userInputElement2= document.getElementById('user-input');
 if(userInputElement2){
     (userInputElement2 as HTMLInputElement).value ='Hi there!'
 }
+
+
+//Index properties
+interface ErrorContainer{
+    [prop:string]:string;
+}
+
+const errorBag: ErrorContainer= {
+    1: "Not an email",
+    "bag": "Get yo bag",
+    "userName": "Must be capitol letter"
+}
+
+
+

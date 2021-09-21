@@ -78,4 +78,9 @@ var userInputElement2 = document.getElementById('user-input');
 if (userInputElement2) {
     userInputElement2.value = 'Hi there!';
 }
+var errorBag = {
+    1: "Not an email",
+    "bag": "Get yo bag",
+    "userName": "Must be capitol letter"
+};
 //# sourceMappingURL=app.js.map
