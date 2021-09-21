@@ -83,3 +83,44 @@ function useVec(v: Vechile){
 
 useVec(v1)
 useVec(v2)
+
+
+//discriminated union of
+interface Bird{
+    type:'bird'
+    flyingSpeed: number;
+}
+
+interface Horse{
+    type:'horse'
+    runningSPeed:number;
+}
+
+type Animal = Bird | Horse;
+
+function AnimalMove(animal: Animal){
+    let speed;
+    switch(animal.type){
+        case 'bird':
+            speed =animal.flyingSpeed
+            break;
+        case 'horse':
+            speed =animal.runningSPeed
+    }
+    console.log("Moving with speed:" + speed)
+}
+
+AnimalMove({type:'bird',flyingSpeed:20})
+
+//Typecasting
+
+//option 1
+const userInputElement= <HTMLInputElement>document.getElementById('message-ouput')!;
+userInputElement.value ='Hi there!'
+
+// option 2 (React)
+const userInputElement2= document.getElementById('user-input');
+
+if(userInputElement2){
+    (userInputElement2 as HTMLInputElement).value ='Hi there!'
+}

@@ -57,4 +57,25 @@ function useVec(v) {
 }
 useVec(v1);
 useVec(v2);
+function AnimalMove(animal) {
+    var speed;
+    switch (animal.type) {
+        case 'bird':
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse':
+            speed = animal.runningSPeed;
+    }
+    console.log("Moving with speed:" + speed);
+}
+AnimalMove({ type: 'bird', flyingSpeed: 20 });
+//Typecasting
+//option 1
+var userInputElement = document.getElementById('message-ouput');
+userInputElement.value = 'Hi there!';
+// option 2 (React)
+var userInputElement2 = document.getElementById('user-input');
+if (userInputElement2) {
+    userInputElement2.value = 'Hi there!';
+}
 //# sourceMappingURL=app.js.map
